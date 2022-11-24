@@ -1,0 +1,36 @@
+.wrapper {
+  width: 220px;
+  padding: 32px 0;
+  overflow: hidden auto;
+  background: var(--color-dark-1);
+}
+
+.logoText {
+  margin-left: 32px;
+}
+
+.logoTextBlue {
+  color: var(--color-blue);
+}
+
+.logoTextLight {
+  color: var(--color-light-1);
+}
+
+.menuContainer {
+  margin-top: 64px;
+}
+
+.menuSectionContainer:not(:last-child) {
+  margin-bottom: 28px;
+}
+
+.menuSectionHeading {
+  color: var(--color-light-2);
+  margin-bottom: 12px;
+  padding-left: 32px;
+}
+
+.menuItemContainer:not(:last-child) {
+  margin-bottom: 8px;
+}
