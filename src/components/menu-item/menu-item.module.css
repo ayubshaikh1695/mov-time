@@ -1,0 +1,42 @@
+.wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  height: 48px;
+  padding-left: 32px;
+  cursor: pointer;
+  transition: all 0.2s ease-out;
+}
+
+.wrapper i,
+.wrapper p {
+  color: var(--color-light-2);
+}
+
+.wrapper:hover {
+  background: var(--color-dark-2);
+}
+
+.active::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 2.4px;
+  background: var(--color-blue);
+}
+
+.active i,
+.active p {
+  color: var(--color-blue);
+}
+
+.iconContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 24px;
+  height: 24px;
+}
