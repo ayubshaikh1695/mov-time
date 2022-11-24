@@ -1,0 +1,31 @@
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.contentLeft {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+}
+
+.actorName {
+  max-width: 190px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.contentRight {
+  align-items: flex-end;
+}
+
+.lightText {
+  color: var(--color-light-2);
+}
