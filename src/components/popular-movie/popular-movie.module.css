@@ -1,0 +1,11 @@
+.wrapper {
+  margin-top: 38px;
+}
+
+.heading {
+  margin-bottom: 20px;
+}
+
+.movieCard:not(:last-child) {
+  margin-bottom: 12px;
+}
