@@ -124,16 +124,19 @@ const Home = () => {
           <Discovers
             heading="Discovers"
             list={discovers.result}
+            page={discovers.currentPage}
             onListEnd={fetchNextPageDiscovers}
           />
           <WidgetList
             heading="Popular Movies"
             list={popularMovies.result}
+            page={popularMovies.currentPage}
             onListEnd={fetchNextPagePopularMovies}
           />
           <WidgetList
             heading={filter.name}
             list={topMovies.result}
+            page={topMovies.currentPage}
             onListEnd={fetchNextPageTopMovies}
           />
         </div>

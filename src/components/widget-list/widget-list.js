@@ -1,3 +1,4 @@
+import { useRef, useEffect } from "react";
 import PropTypes from "prop-types";
 import Typography from "components/typography/typography";
 import InView from "components/in-view/in-view";
@@ -5,7 +6,18 @@ import MovieTile from "./components/movie-tile";
 import styles from "./widget-list.module.css";
 
 const WidgetList = (props) => {
-  const { heading, list, onListEnd } = props;
+  const { heading, list, page, onListEnd } = props;
+
+  const listRef = useRef(null);
+
+  useEffect(() => {
+    if (page === 1 && listRef.current.scrollLeft > 0) {
+      listRef.current.scrollTo({
+        left: 0,
+        behavior: "smooth",
+      });
+    }
+  }, [list, page]);
 
   if (!list?.length) {
     return null;
@@ -16,7 +28,7 @@ const WidgetList = (props) => {
       <Typography variant="h2" className={styles.heading}>
         {heading}
       </Typography>
-      <ul className={styles.list}>
+      <ul ref={listRef} className={styles.list}>
         {list.map(
           (item, index) =>
             item.title &&
@@ -49,6 +61,7 @@ const WidgetList = (props) => {
 WidgetList.propTypes = {
   heading: PropTypes.string,
   list: PropTypes.array,
+  page: PropTypes.number,
   onListEnd: PropTypes.func,
 };
 
