@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { Fragment, useState, useEffect, useCallback } from "react";
+import { Fragment, useState, useEffect, useRef, useCallback } from "react";
 import PropTypes from "prop-types";
 import ProfileStrip from "components/profile-strip/profile-strip";
 import Search from "components/search/search";
@@ -34,6 +34,17 @@ const RightSidebar = (props) => {
   useEffect(() => {
     fetchPopularActors();
   }, []);
+
+  const wrapperRef = useRef(null);
+
+  useEffect(() => {
+    if (searchedMovies.currentPage === 1 && wrapperRef.current.scrollTop > 0) {
+      wrapperRef.current.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    }
+  }, [searchedMovies.result, searchedMovies.currentPage]);
 
   const fetchSearchedMovies = (query, page) => {
     if (page === 1 || searchedMovies.currentPage < searchedMovies.totalPages) {
@@ -126,7 +137,7 @@ const RightSidebar = (props) => {
   };
 
   return (
-    <div className={styles.wrapper}>
+    <div ref={wrapperRef} className={styles.wrapper}>
       <ProfileStrip
         name={DEFAULT_ACCOUNT_DETAILS.name}
         avatarPath={DEFAULT_ACCOUNT_DETAILS.avatarPath}
